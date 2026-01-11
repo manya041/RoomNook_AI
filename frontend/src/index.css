@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    scroll-behavior: smooth;
+    background-color: theme('colors.midnight');
+  }
+
+  body {
+    min-height: 100vh;
+    @apply bg-midnight text-ink-100;
+    background-image:
+      radial-gradient(circle at top left, rgba(200, 141, 66, 0.18), transparent 50%),
+      radial-gradient(circle at 20% 60%, rgba(22, 163, 130, 0.12), transparent 40%),
+      linear-gradient(180deg, rgba(8, 10, 15, 0.95) 0%, rgba(11, 13, 18, 0.98) 100%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-ink-50;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: rgba(203, 167, 102, 0.35);
+    color: theme('colors.ivory');
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 18, 26, 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(203, 167, 102, 0.85), rgba(52, 196, 156, 0.7));
+    border-radius: 999px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .floating-card:hover {
+    transform: none !important;
+  }
+}
+
+@layer components {
+  .container {
+    @apply px-6 mx-auto w-full;
+    max-width: 1200px;
+  }
+
+  @screen lg {
+    .container {
+      max-width: 1280px;
+      @apply px-8;
+    }
+  }
+
+  @screen xl {
+    .container {
+      max-width: 1360px;
+    }
+  }
+
+  .section {
+    @apply py-18 md:py-22;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-fluid font-medium tracking-wide transition-all duration-300 ease-club focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-400 hover:-translate-y-0.5 active:translate-y-0 text-sm uppercase;
+    letter-spacing: 0.18em;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, rgba(203,167,102,0.92), rgba(52,196,156,0.85));
+    @apply text-midnight shadow-glow;
+  }
+
+  .btn-secondary {
+    background: linear-gradient(135deg, rgba(24,28,40,0.85), rgba(24,28,40,0.65));
+    @apply text-ivory border border-white/10 hover:border-white/25 shadow-soft;
+  }
+
+  .btn-ghost {
+    @apply text-emerald-200 border border-white/15 bg-white/5 hover:bg-white/10 shadow-none;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.38em] text-champagne-200 bg-white/5 border border-white/10;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 rounded-2xl bg-midnight/70 border border-white/10 text-ink-50 placeholder:text-ink-300 focus:outline-none focus:ring-2 focus:ring-emerald-400/60 focus:border-transparent transition-all duration-200;
+  }
+
+  .glass-panel {
+    @apply bg-surface-glass border border-white/10 backdrop-blur-xl rounded-3xl shadow-elegant;
+  }
+
+  .floating-card {
+    @apply glass-panel shadow-soft hover:shadow-glow transition-all duration-500 ease-club hover:-translate-y-2;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-emerald {
+    @apply bg-emerald-500/15 text-emerald-200 border border-emerald-400/35;
+  }
+
+  .badge-champagne {
+    @apply bg-champagne-500/15 text-champagne-200 border border-champagne-400/35;
+  }
+
+  .gradient-divider {
+    background: linear-gradient(90deg, rgba(12,18,26,0) 0%, rgba(203,167,102,0.35) 50%, rgba(12,18,26,0) 100%);
+    height: 1px;
+    width: 100%;
+  }
+}

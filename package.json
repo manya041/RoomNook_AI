@@ -1,0 +1,39 @@
+{
+  "name": "roomnook-ai",
+  "version": "1.0.0",
+  "description": "Smart PG, Roommate & Mess Finder for Students",
+  "scripts": {
+    "setup": "npm run setup:backend && npm run setup:frontend",
+    "setup:backend": "cd backend && npm install",
+    "setup:frontend": "cd frontend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "install:all": "npm run setup:backend && npm run setup:frontend"
+  },
+  "keywords": [
+    "pg",
+    "roommate",
+    "mess",
+    "student",
+    "housing",
+    "ai",
+    "compatibility",
+    "matchmaking"
+  ],
+  "author": "RoomNook AI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "@huggingface/inference": "^4.11.2",
+    "mysql2": "^3.15.2"
+  }
+}
