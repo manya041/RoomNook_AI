@@ -56,7 +56,7 @@ const syncDatabase = async () => {
     await sequelize.authenticate();
     console.log('✅ Database connection established successfully.');
     
-    await sequelize.sync({ force: false, alter: false });
+    await sequelize.sync({ force: false, alter: true });
     console.log('✅ Database synchronized successfully');
   } catch (error) {
     console.error('❌ Database synchronization failed:', error);
